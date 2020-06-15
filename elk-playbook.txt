@@ -1,0 +1,31 @@
+---
+- name: Configure Elk VM with Docker
+  hosts: elkservers
+  remote_user: ansible
+  become: true
+  tasks:
+
+  - name: Install docker.io
+    apt:
+      force_apt_get: yes
+      name: docker.io
+      state: present
+
+
+
+  - name: Install python-pip
+    apt:
+     force_apt_get: yes
+     name: python-pip
+     state: present
+  - name: Install pip
+    apt:
+      force_apt_get: yes
+      name: python-pip
+      state: present
+
+
+  - name: Install Docker module
+    pip:
+      name: docker
+      state: present
